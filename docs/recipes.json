@@ -1,0 +1,31 @@
+{
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "Mein Komplett-Build",
+            "tools": [
+                "lualatex",
+                "biber",
+                "makeglossaries",
+                "lualatex",
+                "lualatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "lualatex",
+            "command": "lualatex",
+            "args": ["-synctex=1", "-interaction=nonstopmode", "%DOC%"]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": ["%DOCFILE%"]
+        },
+        {
+            "name": "makeglossaries",
+            "command": "makeglossaries",
+            "args": ["%DOCFILE%"]
+        }
+    ]
+}

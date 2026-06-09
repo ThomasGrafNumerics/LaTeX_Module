@@ -23,4 +23,14 @@ winget install --id MiKTeX.MiKTeX
 winget install --id StrawberryPerl.StrawberryPerl
 ```
 
-# Extension ()
+# Extension (macOS und Windows)
+
+Installieren Sie die VS Code-Extension `Latex Workshop` (von James Yu).
+
+Öffnen Sie nun in VS Code die Kommando-Palette:
+
+- **macOS:** <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+- **Windows:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
+
+Suchen Sie nach dem folgenden Befehl und wählen Sie ihn aus:
+`Preferences: Open User Settings (JSON)`
