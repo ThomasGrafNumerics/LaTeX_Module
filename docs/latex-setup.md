@@ -43,4 +43,4 @@ Kopiere Sie dort folgendes hinein:
 
 # Verwendung
 
-Ab sofort können Sie Ihre LaTeX-Projekte mithilfe von `Latex Workshop` 
+Ab sofort können Sie Ihre LaTeX-Projekte mithilfe von `Latex Workshop` in VS Code kompilieren. 
