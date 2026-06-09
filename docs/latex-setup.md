@@ -6,7 +6,7 @@ nav_order: 1
 
 # Anleitung für macOS
 
-Öffnen Sie ein neues Terminal-Fenster, indem Sie zunächst die Spotlight-Suche mit Cmd + Leertaste öffnen. Geben Sie dort Terminal ein und bestätigen Sie mit Enter.
+Öffnen Sie ein neues Terminal-Fenster, indem Sie zunächst die Spotlight-Suche mit <kbd>Cmd</kbd> + <kbd>Leertaste</kbd> öffnen. Geben Sie dort `Terminal` ein und bestätigen Sie mit <kbd>Enter</kbd>.
 
 Führen Sie danach diesen Befehl aus:
 
@@ -35,8 +35,12 @@ Installieren Sie die VS Code-Extension `Latex Workshop` (von James Yu).
 Suchen Sie nach dem folgenden Befehl und wählen Sie ihn aus:
 `Preferences: Open User Settings (JSON)`
 
-Kopiere dort hinein folgendes:
+Kopiere Sie dort folgendes hinein:
 
 ```json
 {% include_relative recipes.json %}
 ```
+
+# Verwendung
+
+Ab sofort können Sie Ihre LaTeX-Projekte mithilfe von `Latex Workshop` kompilieren. 
