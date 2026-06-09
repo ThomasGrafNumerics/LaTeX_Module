@@ -23,7 +23,7 @@ winget install --id MiKTeX.MiKTeX
 winget install --id StrawberryPerl.StrawberryPerl
 ```
 
-# Extension (macOS und Windows)
+# LaTeX-Extension in VS Code (macOS und Windows)
 
 Installieren Sie die VS Code-Extension `Latex Workshop` (von James Yu).
 
@@ -38,5 +38,5 @@ Suchen Sie nach dem folgenden Befehl und wählen Sie ihn aus:
 Kopiere dort hinein folgendes:
 
 ```json
-{% include_relative ../recipes.json %}
+{% include_relative recipes.json %}
 ```
