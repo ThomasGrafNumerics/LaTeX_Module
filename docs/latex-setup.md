@@ -1,7 +1,6 @@
 ---
 layout: default
 title: VS Code + Python Setup
-parent: Technische Seiten
 nav_order: 1
 ---
 
