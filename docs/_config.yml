@@ -1,6 +1,6 @@
 title: LaTeX Module
 description: Dokumentation zum LaTeX Module
-theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 url: "https://thomasgrafnumerics.github.io"
 baseurl: "/LaTeX_Module"
