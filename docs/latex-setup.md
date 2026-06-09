@@ -34,3 +34,9 @@ Installieren Sie die VS Code-Extension `Latex Workshop` (von James Yu).
 
 Suchen Sie nach dem folgenden Befehl und wählen Sie ihn aus:
 `Preferences: Open User Settings (JSON)`
+
+Kopiere dort hinein folgendes:
+
+```json
+{% include_relative ../recipes.json %}
+```
