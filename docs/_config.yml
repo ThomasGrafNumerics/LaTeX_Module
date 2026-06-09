@@ -6,3 +6,6 @@ url: "https://thomasgrafnumerics.github.io"
 baseurl: "/LaTeX_Module"
 
 enable_copy_code_button: true
+
+plugins:
+  - jekyll-remote-theme
