@@ -6,7 +6,7 @@ nav_order: 1
 
 # Anleitung für macOS
 
-Öffnen Sie ein neues Terminal-Fenster, indem Sie zunächst die Spotlight-Suche mit <kbd>Cmd</kbd> + <kbd>Leertaste</kbd> öffnen. Geben Sie dort `Terminal` ein und bestätigen Sie mit <kbd>Enter</kbd>.
+Öffnen Sie ein neues Terminal-Fenster, indem Sie zunächst die Spotlight-Suche mit Cmd + Leertaste öffnen. Geben Sie dort Terminal ein und bestätigen Sie mit Enter.
 
 Führen Sie danach diesen Befehl aus:
 
@@ -27,7 +27,7 @@ winget install --id StrawberryPerl.StrawberryPerl
 
 Installieren Sie die VS Code-Extension `Latex Workshop` (von James Yu).
 
-Öffnen Sie nun in VS Code die Kommando-Palette:
+<!-- Öffnen Sie nun in VS Code die Kommando-Palette:
 
 - **macOS:** <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
 - **Windows:** <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>
@@ -39,8 +39,8 @@ Kopiere Sie dort folgendes hinein:
 
 ```json
 {% include_relative recipes.json %}
-```
+``` -->
 
 # Verwendung
 
-Ab sofort können Sie Ihre LaTeX-Projekte mithilfe von `Latex Workshop` kompilieren. 
+Ab sofort können Sie Ihre LaTeX-Projekte mithilfe von `Latex Workshop` 
