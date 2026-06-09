@@ -1,1 +1,1 @@
-# LaTeX_Module
+# LaTeX Module
