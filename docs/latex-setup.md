@@ -46,15 +46,5 @@ Kopiere Sie dort folgendes hinein:
 Sie können nun jedes LaTeX-Projekt kompilieren. Navigieren Sie dazu im Terminal in das Verzeichnis, in dem sich Ihre `main.tex` befindet, und führen Sie die folgenden Befehle aus:
 
 ```bash
-echo "Step 1 of 5: lualatex"
-lualatex -synctex=1 -interaction=nonstopmode main.tex
-echo "Step 2 of 5: biber"
-biber main
-echo "Step 3 of 5: makeglossaries"
-makeglossaries main
-echo "Step 4 of 5: lualatex"
-lualatex -synctex=1 -interaction=nonstopmode main.tex
-echo "Step 5 of 5: lualatex"
-lualatex -synctex=1 main.tex
-echo "Compilation complete"
+echo "Step 1 of 5: lualatex"; lualatex -synctex=1 -interaction=nonstopmode main.tex; echo "Step 2 of 5: biber"; biber main; echo "Step 3 of 5: makeglossaries"; makeglossaries main; echo "Step 4 of 5: lualatex"; lualatex -synctex=1 -interaction=nonstopmode main.tex; echo "Step 5 of 5: lualatex"; lualatex -synctex=1 main.tex; echo "Compilation complete"
 ```
