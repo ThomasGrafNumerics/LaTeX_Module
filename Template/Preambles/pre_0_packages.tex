@@ -1,0 +1,315 @@
+% An alternative to babel for XeLaTeX and LuaLaTeX. [LOAD BEFORE BIBLATEX]
+\usepackage{polyglossia}
+\setdefaultlanguage[babelshorthands=true]{german}
+
+% required for shell pipeline to work
+\usepackage[table]{xcolor}
+
+% Extensive support for hypertext in LaTeX
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	linkcolor={SeaGreen},
+	urlcolor={RoyalBlue},
+	citecolor=,
+}
+
+% Run a document through LaTeX for syntax checking
+% \usepackage{syntonly}
+
+% Draw a page-layout diagram
+% \usepackage{showframe}
+
+% Advanced font selection in XeLaTeX and LuaLaTeX
+\usepackage{fontspec}
+
+% Standard package for selecting font encodings
+\usepackage[T1]{fontenc}
+
+% Latin modern fonts in outline formats
+\usepackage{lmodern}
+
+% Reimplementation of and extensions to LaTeX verbatim
+\usepackage{verbatim}
+
+% Conditional commands in LaTeX documents
+\usepackage{ifthen}
+
+% String manipulation for (La)TeX
+\usepackage{xstring}
+
+% Define commands that appear not to eat spaces
+\usepackage{xspace}
+
+% Access to PostScript standard Symbol and Dingbats fonts
+\usepackage{pifont}
+
+% Context sensitive quotation facilities
+\usepackage{csquotes}
+
+% Typeset source code listings using LaTeX
+\usepackage{listings}
+
+% float wrapper for algorithms
+\usepackage{algorithm}
+
+% layout for algorithmicx
+\usepackage[noend]{algpseudocode}
+
+% AMS mathematical facilities for LaTeX
+\usepackage{amsmath}
+
+% TeX fonts from the American Mathematical Society
+\usepackage{amssymb}
+
+% AMS-LaTeX commutative diagrams
+\usepackage{amscd}
+
+% Typesetting theorems (AMS style)
+\usepackage{amsthm}
+
+% Dirac bra-ket and set notations
+\usepackage{braket}
+
+% Place lines through maths formulae
+\usepackage{cancel}
+
+% Access bold symbols in maths mode
+\usepackage{bm}
+
+% Macros for manipulating polynomials
+\usepackage{polynom}
+
+% Mathematical tools to use with amsmath
+\usepackage{mathtools}
+
+% Enhanced support for graphics
+\usepackage{graphicx}
+
+% wrapfig -- Produces figures which text can flow around
+\usepackage{wrapfig}
+
+% Intermix single and multiple columns
+\usepackage{multicol}
+
+% This package provides macros to insert playing cards, single, or hand, or random-hand, Poker or French Tarot or Uno, from png files.
+\usepackage{JeuxCartes}
+
+% Selective filtering of error messages and warnings
+\usepackage{silence}
+\WarningFilter{latex}{`!h' float specifier changed to `!ht'}
+\WarningFilter{latex}{`h' float specifier changed to `ht'}
+
+% Create PostScript and PDF graphics in TeX
+\usepackage{tikz}
+
+% Draw people-shaped nodes in TikZ
+\usepackage{tikzpeople}
+
+% Martin Vogel's Symbols (marvosym) font
+\usepackage{marvosym}
+
+% Some symbols created using TikZ
+\usepackage[marvosym]{tikzsymbols}
+
+% Coordinate transformation styles for 3d plotting in TikZ
+\usepackage{tikz-3dplot}
+
+% The package provides a PGF/TikZ-based mechanism for drawing linguistic (and other kinds of) trees.
+\usepackage{forest}
+
+% Create normal/logarithmic plots in two and three dimensions
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+
+% Framed environments that can split at page boundaries
+\usepackage[framemethod=TikZ]{mdframed}
+
+% Customising captions in floating environments
+\usepackage{caption}
+
+% Support for sub-captions
+\usepackage{subcaption}
+
+% Improved interface for floating objects
+\usepackage{float}
+
+% A range of footnote options
+\usepackage[hang,flushmargin]{footmisc}
+
+% A generic document command parser
+\usepackage{xparse}
+
+% Create PostScript and PDF graphics in TeX
+\usepackage{pgf}
+
+% defines \foreach
+\usepackage{pgffor}
+
+% This package introduces aliases for counters, that share the same counter register and ‘clear' list. 
+\usepackage{aliascnt}
+
+% Verbatim with URL-sensitive line breaks
+\usepackage{url}
+
+% Extra control of appendices
+\usepackage[toc,page]{appendix}
+
+% Change the resetting of counters
+\usepackage{chngcntr}
+
+% Highly customised stacking of objects, insets, baseline changes, etc
+\usepackage{stackengine}
+
+% Horizontally columned lists
+\usepackage{tasks}
+
+% Typeset exercises, problems, etc. and their answers
+\usepackage{exercise}
+
+% Draw visual representations of matrices in LaTeX
+\usepackage{drawmatrix}
+
+% Use Twitter's open source emoji's through LaTeX commands
+\usepackage{twemojis}
+
+% Emoji support in (Lua)LaTeX
+\usepackage{emoji}
+% Force the font to use the Node renderer instead of HarfBuzz
+\setemojifont{NotoColorEmoji.ttf}
+
+% Publication quality tables in LaTeX
+\usepackage{booktabs}
+
+% A collection of symbols
+\usepackage{ifsym}
+
+% Print a coloured contour around text
+\usepackage[outline]{contour}
+
+% Driver-independent color extensions for LaTeX and pdfLaTeX
+\usepackage{xcolor}
+
+% Graphics package-alike macros for “general” boxes
+\usepackage{adjustbox}
+
+% A new interface for environments in LaTeX
+\usepackage{environ}
+
+% Easy access to the Lorem Ipsum and other dummy texts
+\usepackage{lipsum}
+
+% A package for typesetting epigraphs
+\usepackage{epigraph}
+
+% A new bookmark (outline) organization for hyperref
+\usepackage{bookmark}
+
+% load package if documentclass is book or article
+\ifboolexpr{togl {book} or togl {article} or togl {flashcards}}{
+	% Extensive control of page headers and footers in LaTeX2ε
+	\usepackage{fancyhdr}
+	% Alternative headings for toc/lof/lot
+	\usepackage{titletoc}
+}{}
+
+% load package if documentclass is not a beamer presentation
+\nottoggle{beamer}{
+	\nottoggle{flashcards}{
+		% Flexible and complete interface to document dimensions
+		\usepackage[a4paper,bindingoffset=0mm,left=22mm,right=22mm,top=25mm,bottom=30mm,footskip=14mm]{geometry}
+	}{}
+	% This package provides user control over the layout of the three basic list environments: enumerate, itemize and description.
+	\usepackage[shortlabels, inline]{enumitem}
+	\setlist{nolistsep} % smaller spacing in lists
+	% Control table of contents, figures, etc
+	\usepackage{tocloft}
+	% A package for producing multiple indexes
+	\usepackage{imakeidx}
+	\makeindex[columns=1, title=Index, intoc]
+	% Intelligent cross-referencing. [LOAD AFTER \hypersetup AND amsmath]
+	\usepackage[nameinlink,noabbrev,capitalise]{cleveref}
+	% Simply changing \parskip and \parindent leaves a layout that is untidy; this package (though it is no substitute for a properly-designed class) helps alleviate this untidiness.
+	\usepackage{parskip}
+}{}
+
+% Completely customisable TOCs
+\usepackage{etoc} % [LOAD AFTER tocloft]
+
+% This package supports common layouts for tabular column heads in whole documents, based on one-column tabular environment. In addition, it can create multi-lined tabular cells.
+\usepackage{makecell}
+
+% The glossaries package supports acronyms and multiple glossaries, and has provision for operation in several languages
+% \usepackage[acronym,nopostdot,nonumberlist,nogroupskip,nomain,style=super]{glossaries}
+\PassOptionsToPackage{lang-warn=false}{datatool-base}
+\usepackage{glossaries}
+
+% This package provides an environment for coloured and framed text boxes with a heading line. 
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+
+% The package adds PDF support to the landscape environment of package lscape, by setting the PDF /Rotate page attribute. Pages with this attribute will be displayed in landscape orientation by conforming PDF viewers
+\usepackage{pdflscape}
+
+% This package is designed to format menu sequences, paths and keyboard shortcuts automatically.
+\usepackage{menukeys}
+
+% set the standard "gobble" option to the indent of the first line of the code.
+\usepackage{lstautogobble}
+
+% The package allows rows and columns to be coloured, and even individual cells.
+\usepackage{colortbl}
+
+% The package generates QR (Quick Response) codes in LATEX, without the need for PSTricks or any other graphical package.
+\usepackage{qrcode}
+
+% Create tabular cells spanning multiple rows
+\usepackage{multirow}
+
+% The package offers access to the large number of web-related icons provided by the included font.
+\usepackage{fontawesome5}
+
+% The package provides a command \forloop for doing iteration in LATEX macro programming.
+\usepackage{forloop}
+
+% The package's principal command, \diagbox, takes two arguments (texts for the slash-separated parts of the box), and an optional argument with which the direction the slash will go, the box dimensions, etc., may be controlled.
+\usepackage{diagbox}
+
+% The package provides an \ul (underline) command which will break over line ends; this technique may be used to replace \em (both in that form and as the \emph command), so as to make output look as if it comes from a typewriter. The package also offers double and wavy underlining, and striking out (line through words) and crossing out (/// over words).
+\usepackage[normalem]{ulem}
+
+% pdfTEX and LuaTEX support several color stacks. This package shows how a separate color stack can be used for transparency, a property besides color that works across page breaks. If the PDF management is used it can also be used with other engines, but without support for page breaks.
+\usepackage{transparent}
+
+% The varwidth environment is superficially similar to minipage, but the specified width is just a maximum value — the box may get a narrower “natural” width.
+\usepackage{varwidth}
+
+% Implements a command that causes the commands specified in its argument to be expanded after the current page is output. 
+\usepackage{afterpage}
+
+% This package provides the command \marginnote that may be used instead of \marginpar at almost every place where \marginpar cannot be used, e.g., inside floats, footnotes, or in frames made with the framed package.
+\usepackage{marginnote}
+
+%The alltt package defines the alltt environment which is like the verbatim environment except that \ and braces have their usual meanings. Thus, other commands and environments can appear within an alltt environment.
+\usepackage{alltt}
+
+% The package provides commands to change the page layout in the middle of a document, and to robustly check for typesetting on odd or even pages. Instructions for use are at the end of the file.
+\usepackage{changepage}
+
+% Provides a scheme for tables that have a structured note section, after the caption. This scheme provides an answer to the old problem of putting footnotes in tables — by making footnotes entirely unnecessary. Note that a threeparttable is not a float of itself; but you can place it in a table or a table* environment, if necessary.
+\usepackage{threeparttable}
+
+% The package defines an environment tabularx, an extension of tabular which has an additional column designator, X, which creates a paragraph-like column whose width automatically expands so that the declared width of the environment is filled. (Two X columns together share out the available space between them, and so on.)
+\usepackage{tabularx}
+
+% A comprehensive (SI) units package
+\usepackage{siunitx}
+% Swiss number format: \num{1000000} gives you 1'000'000, and \num{0.12345} gives you 0.12345 (no change).
+% The apostrophe is used as a thousands separator, and the decimal marker is a period.
+\sisetup{
+  group-separator = {\,\textnormal{\textquotesingle}\,},
+  output-decimal-marker = {.}
+}
+
+% A font for the pigpen (or masonic) cipher
+\usepackage{pigpen}

@@ -1,0 +1,69 @@
+%!TeX program = lualatex
+%% choose document class (book / article / exam / beamer / flashcards)
+
+%% BOOK
+% \documentclass[a4paper,11pt,svgnames,exerciseonly,oneside]{book}
+\documentclass[a4paper,11pt,svgnames,oneside]{book}
+
+%% ARTICLE
+% \documentclass[svgnames,hyphens]{article}
+
+%% EXAM
+% \documentclass[11pt,addpoints,svgnames]{exam}
+% \documentclass[11pt,addpoints,answers,svgnames]{exam}
+
+%% BEAMER
+% \documentclass[xcolor={table,dvipsnames,svgnames},hyphens]{beamer}
+% \documentclass[xcolor={table,dvipsnames,svgnames},hyphens,handout]{beamer}
+
+%% FLASHCARDS
+% \documentclass[frame, avery5388, svgnames]{flashcards}
+% \documentclass[frame, avery5371]{flashcards}
+% \documentclass[frame, fronts, avery5371, svgnames]{flashcards}
+
+%% e-TeX tools for LaTeX
+\usepackage{etoolbox}
+
+%% set toggles (switches) for the document class
+\newtoggle{book} \newtoggle{article} \newtoggle{exam} \newtoggle{beamer} \newtoggle{flashcards} %% default value is 'false'
+
+\def\documentToggle{0} %% <---- choose number
+
+\ifnumequal{\documentToggle}{0}{\settoggle{book}{true}}{}     %% book (0)
+\ifnumequal{\documentToggle}{1}{\settoggle{article}{true}}{}  %% article (1)
+\ifnumequal{\documentToggle}{2}{\settoggle{exam}{true}}{}     %% exam (2)
+\ifnumequal{\documentToggle}{3}{\settoggle{beamer}{true}}{}   %% beamer (3)
+\ifnumequal{\documentToggle}{4}{\settoggle{flashcards}{true}}{}   %% flashcards (4)
+
+%% Does the document contain at least one citation?  (true / false)
+\newtoggle{citations} \settoggle{citations}{true}
+
+%% Define project-specific toggles (values are set in each project individually)
+% Should the title page include a school logo? (true / false)
+\newtoggle{includelogo}
+%% language toggles
+\newtoggle{german} \newtoggle{english}
+\settoggle{german}{true}  %% default value is 'true'
+\settoggle{english}{false} %% default value is 'false'
+
+% emoji toggle
+\newtoggle{emoji} \settoggle{emoji}{true}
+
+% headers below (only applicable to article class!)
+\newtoggle{addheader}\settoggle{addheader}{true}
+
+\input{Preambles/pre_0_packages}    %% loading packages
+\input{Preambles/pre_1_options}     %% settings and various options for packages
+\input{Preambles/pre_2_macros}      %% macros
+\input{Preambles/pre_3_tikz}        %% tikz related contents
+\input{Preambles/pre_4_custom_envs} %% custom environments
+
+%% BOOK
+\iftoggle{book} {%
+	\input{MA/skript.tex}
+} {}
+
+%% ARTICLE
+\iftoggle{article} {%
+
+} {}

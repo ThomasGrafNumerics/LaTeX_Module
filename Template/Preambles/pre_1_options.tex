@@ -1,0 +1,182 @@
+%% settings for listings-package %%
+% baseline listings style
+\lstdefinestyle{BaselineStyle}
+{ %
+	commentstyle=\color{Blue},
+	keywordstyle=\color{Green},
+	numberstyle=\tiny\color{Gray},
+	stringstyle=\color{Fuchsia},
+	basicstyle=\ttfamily,
+	columns=flexible,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	keepspaces=true,
+	numbers=none,
+	numbersep=5pt,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	tabsize=4,
+	xleftmargin=1.5em,
+	frame=single,
+	framexleftmargin=1.5em,
+	autogobble=true,
+	upquote=true % to show single quotes as they are (not as curly quotes)
+} %
+% set to 'BaselineStyle'
+\lstset{style=BaselineStyle}
+
+% our Python style
+\lstdefinestyle{Python}
+{ %
+	language=Python,
+	backgroundcolor=\color{Goldenrod!5},
+	morekeywords={as},
+	frame=none,
+	framexleftmargin=0em,
+	xleftmargin=0em,
+	belowskip=0pt,
+	numbers=none,
+	morekeywords={self}
+} %
+
+\lstdefinestyle{sql}
+{ %
+	backgroundcolor=\color{BlanchedAlmond!20},
+	language=sql,
+	frame=lines,
+	numbers=none,
+	deletekeywords={ROLE},
+	morekeywords={LENGTH,IS,RENAME,TO,REFERENCES,ENUM,TINYINT,DATETIME,AUTO_INCREMENT,UNSIGNED,REAL,TEXT,BOOL,BOOLEAN, IF,AUTOINCREMENT},
+	linewidth=\linewidth,
+	framexleftmargin=0em,
+	xleftmargin=0em,
+	belowskip=0pt
+} %
+
+% define dark terminal style
+\lstdefinestyle{bash}{
+  language=bash,
+  basicstyle=\ttfamily\small\color{white},
+  keywordstyle=\color{cyan}\bfseries,
+  commentstyle=\color{gray!70},
+  stringstyle=\color{green!70},
+  showstringspaces=false,
+  frame=single,
+  rulecolor=\color{gray!40},
+  breaklines=true,
+  columns=fullflexible,
+  backgroundcolor=\color{black},
+}
+
+\lstdefinestyle{LaTeX}{
+    language=TeX,
+    morekeywords={
+        documentclass, document, usepackage, input,
+        begin, end,
+        label, ref, cite,
+        section, subsection, subsubsection, chapter,
+        lstlisting,
+        textwidth, textheight, pagestyle
+    },
+    backgroundcolor=\color{MintCream!15},
+    basicstyle=\ttfamily\small,
+    numbers=none,
+    keywordstyle=\color{blue},
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{orange},
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b
+} %
+
+% to show a LaTeX source code and its compiled resulting document in a tcolorbox
+\tcbuselibrary{listings}
+
+%% specific settings for different document classes %%
+\iftoggle{exam}{
+	%% EXAM ENVIRONMENT %%
+	\iftoggle{german}{%
+		\pointpoints{Punkt}{Punkte}
+		\bonuspointpoints{Bonuspunkt}{Bonuspunkte}
+		\renewcommand{\solutiontitle}{\noindent\textbf{Lösungsvorschlag:}\enspace}
+		\hqword{Aufgabe:}
+		\hpgword{Seite:}
+		\hpword{Punkte:}
+		\hsword{erhalten:}
+		\htword{Total}
+		\vqword{Frage}
+		\bhqword{Aufgabe:}
+		\bhpgword{Seite:}
+		\bhpword{Bonuspunkte:}
+		\bhsword{erhalten:}
+		\bhtword{Total}
+		\chqword{Aufgabe:}
+		\chpgword{Seite:}
+		\chpword{Punkte:}
+		\chbpword{Bonuspunkte:}
+		\chsword{erhalten:}
+		\chtword{Total}
+		\totalformat{Aufgabe \thequestion\ total: \totalpoints\ Punkte}
+	}{}
+	%\checkedchar{\CheckedBox}
+	\runningheadrule
+	% \firstpageheader{\mycourse}{\myclass}{\mydate}
+	\runningheader{\mycourse}{\myclass}{\mydate}
+	\firstpagefooter{}{\thepage\,/\,\numpages}{}
+	\runningfooter{}{\thepage\,/\,\numpages}{}
+	\CorrectChoiceEmphasis{\normalfont}
+	% \renewcommand{\questionlabel}{\bfseries Aufgabe~\thequestion.}
+}{}
+
+\iftoggle{book}{
+	% fancyheader options
+	\pagestyle{fancy}
+	\fancyhead[C]{}
+
+	\setlength{\headheight}{26pt}
+
+	% BOOK ENVIRONMENT %
+	\setcounter{secnumdepth}{5}
+	\setcounter{tocdepth}{5}
+	% start chapter numbering at different number (set to -1 to start at 0)
+	\setcounter{chapter}{0}
+	% slightly changing chapter marking in header
+	\renewcommand{\chaptermark}[1]{\markboth{\textnormal{\thechapter}\ \textnormal{#1}}{}}
+	% slightly changing section marking in header
+	\renewcommand{\sectionmark}[1]{\markright{\textnormal{\thesection}\ \textnormal{#1}}{}}
+	% making header of toc non italics (\upshape) and not all capitals
+	\iftoggle{german}{%
+		\addto\captionsgerman{\renewcommand{\contentsname}{\upshape{I\MakeLowercase{nhaltsverzeichnis}}}}
+	}{%
+		\addto\captionsenglish{\renewcommand{\contentsname}{\upshape{T\MakeLowercase{able of contents}}}}
+	}%
+}{}
+
+% BEAMER %
+\iftoggle{beamer}{
+	\beamertemplatenavigationsymbolsempty
+}{}
+
+\iftoggle{german}{
+	%% replace English terms with German counterparts %%
+	\renewcommand{\lstlistingname}{Programm}
+	\floatname{algorithm}{Algorithmus}
+	\renewcommand{\algorithmicrequire}{\textbf{Eingabe:}}
+	\renewcommand{\algorithmicensure}{\textbf{Resultat:}}
+
+	%% clever refs %%
+	\nottoggle{beamer}{
+		\crefname{listing}{Programm}{Programme}
+		\Crefname{listing}{Programm}{Programme}
+	}{}
+}{}
+
+\iftoggle{article}{
+	\iftoggle{addheader}{
+		% fancyheader options
+		\pagestyle{fancy}
+		\fancyhead[C]{}
+		\setlength{\headheight}{14pt}}{}
+}{}

@@ -1,0 +1,393 @@
+\nottoggle{beamer}{
+	% enumerate with roman numbers
+	\newlist{renum}{enumerate}{1}
+	\setlist[renum,1]{label=(\roman*)}
+
+	% enumerate alphabetically
+	\newlist{aenum}{enumerate}{1}
+	\setlist[aenum,1]{label=(\alph*)}
+} {%
+}
+
+\newtheoremstyle{mytheoremstyle}% 〈name〉
+{6pt}%  <Space above>
+{6pt}%  <Space below>
+{\normalfont}%  <Body font〉
+{}% <Indent amount>
+{\bfseries}% <Theorem head font〉
+{:}% Punctuation after theorem head〉
+{\newline}% Space after theorem head 
+{}% <Theorem head spec (can be left empty, meaning ‘normal')〉
+
+\theoremstyle{mytheoremstyle}
+\iftoggle{book}{%
+	\iftoggle{german}{%
+		\newtheorem{myexample}{Beispiel}[chapter]
+		\newtheorem{myremark}{Bemerkung}[chapter]
+		\newtheorem{mydefinition}{Definition}[chapter]
+		\newtheorem{myaxiom}{Axiom}[chapter]
+		\newtheorem{mytheorem}{Theorem}[chapter]
+		\newtheorem{myproof}{Beweis}[chapter]
+		\newtheorem{mysummary}{Zusammenfassung}[chapter]
+		\newtheorem{myprocedure}{Vorgehen}[chapter]
+		\newtheorem{myattention}{Wichtiger Hinweis}[chapter]
+		\newtheorem{myexcursion}{Exkurs}[chapter]
+		\newtheorem{myoverview}{Übersicht}[chapter]
+		\newtheorem{myquote}{Zitat}[chapter]
+		\newtheorem{myidea}{Idee}[chapter]
+	} {%
+		\newtheorem{myexample}{example}[chapter]
+		\newtheorem{myremark}{remark}[chapter]
+		\newtheorem{mydefinition}{definition}[chapter]
+		\newtheorem{myaxiom}{axiom}[chapter]
+		\newtheorem{mytheorem}{theorem}[chapter]
+		\newtheorem{myproof}{proof}[chapter]
+		\newtheorem{mysummary}{summary}[chapter]
+		\newtheorem{myprocedure}{procedure}[chapter]
+		\newtheorem{myattention}{important note}[chapter]
+		\newtheorem{myexcursion}{excursus}[chapter]
+		\newtheorem{myoverview}{overview}[chapter]
+		\newtheorem{myquote}{quote}[chapter]
+		\newtheorem{myidea}{idea}[chapter]
+	}%
+}{%
+	\iftoggle{german}{%
+		\newtheorem{myexample}{Beispiel}[section]
+		\newtheorem{myremark}{Bemerkung}[section]
+		\newtheorem{mydefinition}{Definition}[section]
+		\newtheorem{myaxiom}{Axiom}[section]
+		\newtheorem{mytheorem}{Theorem}[section]
+		\newtheorem{myproof}{Beweis}[section]
+		\newtheorem{mysummary}{Zusammenfassung}[section]
+		\newtheorem{myprocedure}{Vorgehen}[section]
+		\newtheorem{myattention}{Wichtiger Hinweis}[section]
+		\newtheorem{myexcursion}{Exkurs}[section]
+		\newtheorem{myoverview}{Übersicht}[section]
+		\newtheorem{myquote}{Zitat}[section]
+		\newtheorem{myidea}{Idee}[section]
+	} {%
+		\newtheorem{myexample}{example}[section]
+		\newtheorem{myremark}{remark}[section]
+		\newtheorem{mydefinition}{definition}[section]
+		\newtheorem{myaxiom}{axiom}[section]
+		\newtheorem{mytheorem}{theorem}[section]
+		\newtheorem{myproof}{proof}[section]
+		\newtheorem{mysummary}{summary}[section]
+		\newtheorem{myprocedure}{procedure}[section]
+		\newtheorem{myattention}{important Note}[section]
+		\newtheorem{myexcursion}{excursus}[section]
+		\newtheorem{myoverview}{overview}[section]
+		\newtheorem{myquote}{quote}[section]
+		\newtheorem{myidea}{idea}[section]
+	}%
+}%
+% tcolorbox baseline template
+\newtcolorbox{tcolorboxTemplate}[1][]{
+	enhanced jigsaw,
+	lines before break=9,
+	breakable,
+	parbox=false,
+	attach boxed title to top text left={yshift=-3mm,yshifttext=-3mm},
+	#1}
+\tcolorboxenvironment{myexample}{
+	enhanced jigsaw,colframe=DarkSeaGreen,interior hidden,
+	breakable,before skip=10pt,after skip=10pt, parbox=false }
+\tcolorboxenvironment{myremark}{
+	enhanced jigsaw,colframe=Indigo,interior hidden,
+	breakable,before skip=10pt,after skip=10pt, parbox=false }
+\tcolorboxenvironment{mydefinition}{
+	enhanced jigsaw,colframe=Goldenrod,interior hidden,
+	breakable,before skip=10pt,after skip=10pt, parbox=false }
+\tcolorboxenvironment{myaxiom}{
+	enhanced jigsaw,colframe=Tomato,interior hidden,
+	breakable,before skip=10pt,after skip=10pt }
+\tcolorboxenvironment{mytheorem}{
+	enhanced jigsaw,colframe=Teal,interior hidden,
+	breakable,before skip=10pt,after skip=10pt }
+\tcolorboxenvironment{myproof}{% `proof' from `amsthm'
+	blanker,breakable,left=5mm,
+	before skip=10pt,after skip=10pt,
+	borderline west={1mm}{0pt}{Magenta}}
+\tcolorboxenvironment{mysummary}{
+	enhanced jigsaw,colframe=MintCream,interior hidden,
+	breakable,before skip=10pt,after skip=10pt }
+\tcolorboxenvironment{myprocedure}{
+	enhanced jigsaw,colframe=Lavender,interior hidden,
+	breakable,before skip=10pt,after skip=10pt }
+\tcolorboxenvironment{myattention}{
+	enhanced jigsaw,colframe=Red,interior hidden,
+	breakable,before skip=10pt,after skip=10pt,colback=Red!50, % Background color
+	coltitle=white,
+	colframe=Red!50!black,
+	colbacktitle=Red!50!black,
+	parbox=false,
+	title=\faExclamationTriangle{} }
+\tcolorboxenvironment{myoverview}{
+	enhanced jigsaw,colframe=Yellow,interior hidden,
+	breakable,before skip=10pt,after skip=10pt }
+\tcolorboxenvironment{myquote}{
+	enhanced jigsaw,colframe=OrangeRed,interior hidden,
+	breakable,before skip=10pt,after skip=10pt }
+\tcolorboxenvironment{myidea}{
+	enhanced jigsaw,colframe=Gold,interior hidden,
+	breakable,before skip=10pt,after skip=10pt,colback=Gold!10, % Background color
+	coltitle=white,
+	colframe=Gold!70!black,
+	colbacktitle=Gold!70!black,
+	parbox=false,
+	title=\faLightbulb{} }
+
+% counter shared between 'myexercise', 'mychallenge' and 'mysubmission'
+\iftoggle{book} {%
+	\newcounter{SharedCounter}[chapter]
+}{%
+	\newcounter{SharedCounter}[section]
+}
+
+\setcounter{SharedCounter}{0}
+
+\iftoggle{book} {%
+	\renewcommand{\theSharedCounter}{\arabic{chapter}.\arabic{SharedCounter}}
+}{%
+	\renewcommand{\theSharedCounter}{\arabic{section}.\arabic{SharedCounter}}
+}
+
+% myexercise
+\iftoggle{german}{%
+	\def\theexercisename{Aufgabe}
+	\def\thesubmissionname{Aufgabe (Abgabe)}
+	\def\thechallengename{Aufgabe (Challenge)}
+	\def\theanswername{Lösungsvorschlag zu}
+}{%
+	\def\theexercisename{Exercise}
+	\def\thesubmissionname{Exercise (Submission)}
+	\def\thechallengename{Exercise (Challenge)}
+	\def\theanswername{Example solution to}
+}
+\newaliascnt{ExerciseCounter}{SharedCounter}
+\aliascntresetthe{ExerciseCounter}
+\newenvironment{myexercise}[1][]
+{%
+	\refstepcounter{ExerciseCounter}
+	\begin{tcolorboxTemplate}[
+			title=\faEdit{} \theexercisename~\theSharedCounter~#1,
+			parbox=false,
+			colback=RoyalBlue!10,
+			colframe=RoyalBlue,
+			colbacktitle=RoyalBlue]
+		}%%
+		{%
+	\end{tcolorboxTemplate}
+}%
+
+% mychallenge
+\newaliascnt{ChallengeCounter}{SharedCounter}
+\aliascntresetthe{ChallengeCounter}
+\newenvironment{mychallenge}[1][]
+{%
+	\refstepcounter{ChallengeCounter}
+	\begin{tcolorboxTemplate}[
+			title=\faTrophy{} \thechallengename~\theSharedCounter~#1,
+			colback=Gold!10,
+			colframe=Gold!50!black,
+			colbacktitle=Gold!50!black]
+		}%%
+		{%
+	\end{tcolorboxTemplate}
+}%
+
+% myanswer
+\begin{@empty}
+\end{@empty}
+\newcounter{DummyCounter}
+\newcommand{\myanswerlabel}{-}
+\newenvironment{myanswer}[1][]
+{
+\refstepcounter{DummyCounter}
+
+\ifblank{#1} {%
+	\renewcommand{\myanswerlabel}{\theexercisename~\theSharedCounter}
+	\renewcommand{\AnswerHeader}{}
+	\newcommand{\myanswercapsule}{tcolorboxTemplate}
+} {%
+	\renewcommand{\myanswerlabel}{\cref{#1}}
+	\renewcommand{\AnswerHeader}{
+		\begin{center}
+			\textcolor{ForestGreen}{\faCheck{}~\theanswername~\myanswerlabel~\faCheck{}}
+		\end{center}
+	}
+	\newcommand{\myanswercapsule}{@empty}
+}%
+\begin{Answer}[ref=\theDummyCounter]
+\ifblank{#1} {%
+	\begin{\myanswercapsule}[
+		opacityback=.5,
+		coltitle=white,
+		colback=ForestGreen!10,
+		colframe=ForestGreen,
+		colbacktitle=ForestGreen,
+		opacityback=1,
+		title=\faCheck{}~\theanswername~\myanswerlabel]
+} {
+	\begin{\myanswercapsule}
+		}%
+		}%
+		{%
+	\end{\myanswercapsule}
+	\end{Answer}
+}%
+
+% names for clever references
+\nottoggle{beamer}{%
+	\iftoggle{german}{%
+		\crefname{ExerciseCounter}{Aufgabe}{Aufgaben}
+		\Crefname{ExerciseCounter}{Aufgabe}{Aufgaben}
+		\crefname{SubmissionCounter}{Abgabe}{Abgaben}
+		\Crefname{SubmissionCounter}{Abgabe}{Abgaben}
+		\crefname{ChallengeCounter}{Challenge}{Challenges}
+		\Crefname{ChallengeCounter}{Challenge}{Challenges}
+		\crefname{myexample}{Beispiel}{Beispiele}
+		\Crefname{myexample}{Beispiel}{Beispiele}
+		\crefname{myremark}{Bemerkung}{Bemerkungen}
+		\Crefname{myremark}{Bemerkung}{Bemerkungen}
+		\crefname{mydefinition}{Definition}{Definitionen}
+		\Crefname{mydefinition}{Definition}{Definitionen}
+		\crefname{myaxiom}{Axiom}{Axiome}
+		\Crefname{myaxiom}{Axiom}{Axiome}
+		\crefname{mytheorem}{Theorem}{Theoreme}
+		\Crefname{mytheorem}{Theorem}{Theoreme}
+		\crefname{myproof}{Beweis}{Beweise}
+		\Crefname{myproof}{Beweis}{Beweise}
+		\crefname{mysummary}{Zusammenfassung}{Zusammenfassungen}
+		\Crefname{mysummary}{Zusammenfassung}{Zusammenfassungen}
+		\crefname{myprocedure}{Vorgehen}{Vorgehen}
+		\Crefname{myprocedure}{Vorgehen}{Vorgehen}
+		\crefname{myattention}{Wichtiger Hinweis}{Wichtige Hinweise}
+		\Crefname{myattention}{Wichtiger Hinweis}{Wichtige Hinweise}
+		\crefname{myexcursion}{Exkurs}{Exkurse}
+		\Crefname{myexcursion}{Exkurs}{Exkurse}
+		\crefname{myoverview}{Übersicht}{Übersichten}
+		\Crefname{myoverview}{Übersicht}{Übersichten}
+		\crefname{myquote}{Zitat}{Zitate}
+		\Crefname{myquote}{Zitat}{Zitate}
+		\crefname{myidea}{Idee}{Ideen}
+		\Crefname{myidea}{Idee}{Ideen}
+		\crefname{section}{Abschnitt}{Abschnitte}
+		\Crefname{section}{Abschnitt}{Abschnitte}
+		\crefname{subsection}{Unterabschnitt}{Unterabschnitte}
+		\Crefname{subsection}{Unterabschnitt}{Unterabschnitte}
+	}{%
+		\crefname{ExerciseCounter}{exercise}{exercises}
+		\Crefname{ExerciseCounter}{Exercise}{Exercises}
+		\crefname{SubmissionCounter}{submission}{submissions}
+		\Crefname{SubmissionCounter}{Submission}{Submissions}
+		\crefname{ChallengeCounter}{challenge}{challenges}
+		\Crefname{ChallengeCounter}{Challenge}{Challenges}
+		\crefname{myexample}{example}{examples}
+		\Crefname{myexample}{Example}{Examples}
+		\crefname{myremark}{remark}{remarks}
+		\Crefname{myremark}{Remark}{Remarks}
+		\crefname{mydefinition}{definition}{definitions}
+		\Crefname{mydefinition}{Definition}{Definitions}
+		\crefname{myaxiom}{axiom}{axioms}
+		\Crefname{myaxiom}{Axiom}{Axioms}
+		\crefname{mytheorem}{theorem}{theorems}
+		\Crefname{mytheorem}{Theorem}{Theorems}
+		\crefname{myproof}{proof}{proofs}
+		\Crefname{myproof}{Proof}{Proofs}
+		\crefname{mysummary}{summary}{summaries}
+		\Crefname{mysummary}{Summary}{Summaries}
+		\crefname{myprocedure}{procedure}{procedures}
+		\Crefname{myprocedure}{Procedure}{Procedures}
+		\crefname{myattention}{important Note}{important Notes}
+		\Crefname{myattention}{Important Note}{Important Notes}
+		\crefname{myexcursion}{excursion}{excursions}
+		\Crefname{myexcursion}{Excursion}{Excursions}
+		\crefname{myoverview}{overview}{overviews}
+		\Crefname{myoverview}{Overview}{Overviews}
+		\crefname{myquote}{quote}{quotes}
+		\Crefname{myquote}{Quote}{Quotes}
+		\crefname{myidea}{idea}{ideas}
+		\Crefname{myidea}{Idea}{Ideas}
+		\crefname{section}{section}{sections}
+		\Crefname{section}{Section}{Sections}
+		\crefname{subsection}{subsection}{subsections}
+		\Crefname{subsection}{Subsection}{Subsections}
+	}%
+}{}
+
+% Cyril's environments:
+% mybox
+\newenvironment{mybox}
+{%
+	\begin{tcolorboxTemplate}[
+			colback=Khaki!10, % Background color
+			coltitle=white,
+			colframe=Khaki!50!black,
+			colbacktitle=Khaki!50!black,
+			title=\faExclamationTriangle{} Box]
+		}%%
+		{%
+	\end{tcolorboxTemplate}
+}%
+
+% mycaution
+\newenvironment{mycaution}[1][]
+{%
+\ifblank{#1} {%
+	\begin{tcolorboxTemplate}[
+		colback=Red!10, % Background color
+		coltitle=white,
+		colframe=Red!50!black,
+		colbacktitle=Red!50!black,
+		title=\faExclamationTriangle{} Achtung]
+}%%
+{% else
+	\begin{tcolorboxTemplate}[
+			colback=Red!10, % Background color
+			coltitle=white,
+			colframe=Red!50!black,
+			colbacktitle=Red!50!black,
+			title=\faExclamationTriangle{} Achtung (#1)]
+		}%%
+		}
+		{
+	\end{tcolorboxTemplate}
+}%
+
+\newtcolorbox{notizTemplate}[1][Notizen]{
+	enhanced jigsaw,
+	lines before break=9,
+	breakable,
+	parbox=false,
+	attach boxed title to top text left={yshift=-3mm,yshifttext=-3mm},
+	title=\emoji{pen} Notizen,
+	colback=white,
+	colframe=ForestGreen,
+	colbacktitle=ForestGreen,
+	#1}
+
+\newcommand{\notiz}[1]{\begin{notizTemplate}[height=#1cm]
+	\end{notizTemplate}}
+
+\newtcolorbox{myExBox}[1][]{
+	enhanced jigsaw,
+	breakable,
+	parbox=false,
+	attach boxed title to top text left={yshift=-3mm,yshifttext=-3mm},
+	%  attach boxed title to top text left={yshift=-3mm},
+	colback=\teacherColor!10,
+	colframe=\teacherColor,
+	colbacktitle=\teacherColor,
+	#1}
+
+\newtcolorbox{overviewBox}[1][]{
+	enhanced jigsaw,
+	breakable,
+	parbox=false,
+	attach boxed title to top text left={yshift=-3mm,yshifttext=-3mm},
+	%  attach boxed title to top text left={yshift=-3mm},
+	colback=\teacherColor!10,
+	colframe=\teacherColor,
+	colbacktitle=\teacherColor,
+	#1}

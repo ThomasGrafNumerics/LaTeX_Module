@@ -1,0 +1,173 @@
+\usetikzlibrary{
+  3d,
+  arrows,
+  arrows.spaced,
+  arrows.meta,
+  bending,
+  babel,
+  calc,
+  fit,
+  hobby,
+  patterns,
+  patterns.meta,
+  plotmarks,
+  shapes.geometric,
+  shapes.misc,
+  shapes.symbols,
+  shapes.arrows,
+  shapes.callouts,
+  shapes.multipart,
+  shapes.gates.logic.US,
+  shapes.gates.logic.IEC,
+  circuits.logic.US,
+  circuits.logic.IEC,
+  circuits.logic.CDH,
+  circuits.ee.IEC,
+  datavisualization,
+  datavisualization.polar,
+  datavisualization.formats.functions,
+  er,
+  automata,
+  backgrounds,
+  chains,
+  topaths,
+  trees,
+  petri,
+  mindmap,
+  matrix,
+  calendar,
+  folding,
+  fadings,
+  shadings,
+  spy,
+  through,
+  turtle,
+  positioning,
+  scopes,
+  decorations.fractals,
+  decorations.shapes,
+  decorations.text,
+  decorations.pathmorphing,
+  decorations.pathreplacing,
+  decorations.footprints,
+  decorations.markings,
+  shadows,
+  lindenmayersystems,
+  intersections,
+  fixedpointarithmetic,
+  fpu,
+  svg.path,
+  external,
+  graphs,
+  graphs.standard,
+  quotes,
+  math,
+  angles,
+  views,
+  animations,
+  rdf,
+  perspective,
+  tikzmark,
+  optics,
+  overlay-beamer-styles
+}
+
+\tikzstyle{code} = [
+rectangle,
+rounded corners,
+minimum width=3cm,
+minimum height=1cm,
+text centered,
+draw=black,
+fill=RoyalBlue!10
+]
+
+\tikzstyle{decision} = [
+diamond,
+aspect=2.5,
+minimum width=3cm,
+minimum height=1cm,
+text centered,
+draw=black,
+fill=ForestGreen!30
+]
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzset{>=latex}
+\tikzset{boximg/.style={remember picture,red,thick,draw,inner sep=0pt,outer sep=0pt}}
+
+% command for annotating multiple lines in a code via curly braces
+% arg1: xshift (0em for no shift)
+% arg2: coord1 from which to draw brace
+% arg3: coord2 to which to draw brace
+% arg4: annotation text
+% arg5: curly brace aspect ratio (0.5 for "normal" braces)
+% arg6: rotation (empty for right, "mirror" for left)
+% arg7: text shift (default 5em)
+\newcommand*{\drawBrace}[7]{%
+	
+	% fit rectangle
+    \node[fill=none, draw=none, fit={(#2) (#3)}, inner sep=0pt] (rectg) {};%
+    
+    % curly brace
+    \draw [decoration={brace,#6,amplitude=0.3em,aspect=#5},decorate,very thick,red]%
+      ([xshift=#1]rectg.north east) --%
+      coordinate[right=1em, midway] (#2#3)
+      ([xshift=#1]rectg.south east);%
+    
+    % coordinate for arrow start
+   	\coordinate (#2#3-coord-comment-y) at ($(#2.north)!#5!(#3.south)$);
+   	% coordinate for arrow end
+   	\ifstrequal{#6}{mirror}{
+   	\def\adjarrow{-.3em}
+   	}{
+   	\def\adjarrow{.8em}
+   	}
+   	
+    \coordinate (#2#3-coord-arrow) at ($(#2#3-coord-comment-y)+(#1,0)+(\adjarrow,0)$);
+    
+    % add text (if provided)
+    \ifblank{#4}{}{      
+        % comment
+        \ifblank{#7}{
+        \node[right=5em of #2#3-coord-comment-y](#2#3-comment) {#4};
+        }{
+        \node[right=#7 of #2#3-coord-comment-y](#2#3-comment) {#4};
+        }
+        
+        
+        % arrow pointing from comment to brace
+        \draw[->, style={thick, >=stealth, red!50}] (#2#3-comment.west) to (#2#3-coord-arrow);
+    }  
+   	
+}%
+
+% command for annotating a line in a code via an arrow
+% arg1: code mark (using tikzmark, "to")
+% arg2: comment mark (using tikzmark, "from")
+% arg3: annotation text
+% arg4: fill and arrow color
+\newcommand*{\drawArrow}[4]{%
+    % comment
+    \node[draw=#4, fill=#4](#2-comment) at(#2.east) {#3};
+    
+    % arrow pointing from comment to brace
+    \draw[->,style=#4] (#2-comment.west) -- (#1);
+}%
+
+\renewcommand{\tikzmark}[2][]{%
+  \tikz[remember picture,overlay,baseline=-.5ex] \node[#1] (#2) {};%
+}
+
+
+\newcommand{\markangle}[6][0.25]{
+  \begin{scope}
+    \clip (#2)--(#3)--(#4);
+    \node (ANG) [draw, circle, minimum size=#5] at (#3){};
+  \end{scope}
+  \coordinate (E1) at (intersection 0 of ANG and #3--#2);
+  \coordinate (E2) at (intersection 0 of ANG and #3--#4);
+  \coordinate (EM) at ($ (E1)!0.5!(E2) $);
+  \coordinate (EM) at ($ (EM)!#1!(#3) $);
+  \node at (EM) {#6};
+}
